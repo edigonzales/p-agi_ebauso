@@ -1,5 +1,28 @@
 # p-agi_ebauso
 
+## OEREB
+
+Welche Daten sind nicht im ÖREB:
+
+- FFF
+- Naturgefahren
+- Grundnutzung: Wald und Landwirtschaftstypen fehlen (?)
+- Natur / Landschaft (Richtplan): Falls nur Juraschutzzone interessant, gibt es die sicher auch in der Nutzungsplanung (?). Aber auch im ÖREB?
+
+Problematischer dürfte die Nicht-Fähigkeit von Buffer-Abfragen zu sein. Bei welchen Themen wird gebuffert abgefragt:
+
+- Waldabstand von was genau? 20m
+- Hecken / Ufergehölz (Nutzungsplanung) 10m
+- Baulinie 6m
+
+
+
+
+
+
+
+Naturreservate, Geotope, Archäologie und Denkmalschutz sind im Einzelschutz.
+
 ## Grundstückinformation (im engeren Sinn)
 
 ### Gebäudeadressierung
@@ -115,6 +138,10 @@ Kap. 3.2.5 Baulinien
 Warum "kantonaler Erschliessungsplan"?
 
 Daten entstammen auch aus der Nutzungsplanung (Erschliessung Linienobjekte).
+
+Kap. 3.2.6 Baulinien (Nationalstrasse)
+
+Haben wir nur im ÖREB-Kataster als Daten.
 
 Kap. 3.3 Fruchtfolgeflächen
 
