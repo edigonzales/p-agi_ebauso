@@ -53,6 +53,24 @@ https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bb
 https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2607890,1228270,2607890,1228270
 
 
+Sind da auch gemäss Konzept alle mögliche?
+
+SELECT DISTINCT 
+    thema
+FROM 
+    dsbjd_ebauso_rahmenmodell_pub_v1.fachthemen_fachthema_polygon 
+
+SELECT DISTINCT 
+    thema
+FROM 
+    dsbjd_ebauso_rahmenmodell_pub_v1.fachthemen_fachthema_linie 
+
+SELECT DISTINCT 
+    thema
+FROM 
+    dsbjd_ebauso_rahmenmodell_pub_v1.fachthemen_fachthema_punkt
+
+
 
 
 2605150,1228980
