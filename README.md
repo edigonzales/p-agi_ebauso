@@ -45,12 +45,14 @@ https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bb
 Linien:
 https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_linien.data/?&bbox=2605130,1228960,2605170,1229000
 https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_linien.data/?filter=[[%22t_id%22,%22=%22,6742179]]
-6742179
 
 Test Erschliessung:
 https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2605130,1228960,2605170,1229000
 
-6742179
+Änderung mit Vorwirkung (Rechtsstatus):
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2607890,1228270,2607890,1228270
+
+
 
 
 2605150,1228980
