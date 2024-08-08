@@ -1,5 +1,101 @@
 # p-agi_ebauso
 
+## Bemerkungen (tbd)
+
+- es werden jeweils die öffentlichen Daten / Layer verwendet. Weil sie eben in einem öffentlichen System verwendewt werden. D.h. z.B. für KbS könenn wir nur den geschützten Layer verwenden. ADA-Gedöns ist auch so. -> Muss man die Ämter noch informieren. Bei Denkmalschutz wird der geschützte (nicht-öffentlich) Layer über die Darstellung geregelt (schutzstatus_code=geschuetzt). Der bestehende Dataservice-Layer verwendet also heute bereits alle. Will man so?
+- KbS: Auch Bundesthemen?
+- Juraschutzzone: Gibt es nur im Richtplan, oder? -> Thema ch.so.richtplan.juraschutzzone?
+- Aus Bodenbedeckung nur Wald und Gewässer. Was ist mit Hecken, übrig_bestockt, Rinnsale (aus Einzelobjekte)
+
+- Achtung: "Rechtsstatus": in solothurn nur Daten mit AenderungMitVorwirkung -> wohl im Request mitangeben.
+- Was eBauSO was mit welchen Daten macht, muss eBauSO wissen. Falls sie eher nicht gefiltert requestet, muss sie wissen, ob eine Antwort relevant ist. Arbeitet eBauSO immer mit Filter pro Request, kann keine Antwort auch eine Antwort sein (nämlich, dass es z.B. keine FFF gibt.)
+
+TODO: uppercase thema (analog öreb)
+
+-> Doku: Was kommt von wo? Projekt muss das verstehen und akzeptieren.
+-> Doku: Aufteilung "Struktur" und "Inhalt" (Inhalt pro Thema aufzeigen)
+
+-> Andi S. "https://gretl-i.so.ch/view/GRETL-Jobs/job/dsbjd_ebauso_rahmenmodell_pub/1/console" -> Zeigt das noch afu oereb und nicht oereb_v2?
+
+
+[pid: 7|app: 0|req: 13827/13827] 100.66.7.116 () {74 vars in 1947 bytes} [Thu Aug 8 12:03:33 2024] GET /api/data/v1/ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge/?filter=[[%22t_id%22,%22=%22,3896076]] => generated 421 bytes in 4 msecs (HTTP/1.0 200) 2 headers in 72 bytes (1 switches on core 1)
+
+
+[pid: 7|app: 0|req: 13532/13529] 100.66.7.116 () {74 vars in 1689 bytes} [Thu Aug 8 11:34:43 2024] GET /api/data/v1/ch.so.agi.av.grundstuecke.rechtskraeftig.data/?&bbox=2634375.453457647,1243292.2974765466,2634375.453457647,1243292.2974765466 => generated 5886 bytes in 9 msecs (HTTP/1.0 200) 2 headers in 73 bytes (1 switches on core 2)
+
+
+
+https://geo.so.ch/api/data/v1/ch.so.agi.av.grundstuecke.rechtskraeftig.data/?&bbox=2634375,1243292,2634375,1243292 
+
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2634375,1243292,2634375,1243292 
+
+
+
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_lokalisation_gebaeudeeingang.data/?&bbox=2610530,1229440,2610570,1229480
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_lokalisation_grundstueck.data/?&bbox=2610550,1229460,2610550,1229460
+
+
+Drei Themen:
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2610550,1229460,2610550,1229460
+
+
+Nur Bodenbedeckung (für Wald und Gewässer) / Request pro Thema:
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2610460,1227980,2610500,1228020&filter=[[%22thema%22,%22=%22,%22ch.SO.Bodenbedeckung%22]]
+
+Linien:
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_linien.data/?&bbox=2605130,1228960,2605170,1229000
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_linien.data/?filter=[[%22t_id%22,%22=%22,6742179]]
+6742179
+
+Test Erschliessung:
+https://geo-i.so.ch/api/data/v1/ch.so.dsbjd.ebauso_fachthemen_flaechen.data/?&bbox=2605130,1228960,2605170,1229000
+
+6742179
+
+
+2605150,1228980
+2605130,1228960
+2605170,1229000
+
+
+
+2610480,1228000
+2610460,1227980
+2610500,1228020
+
+
+2596250,1228060
+2596230,1228040
+2596270,1228100
+
+
+
+
+2.610.556, 1.229.463
+
+2610550,1229460
+2610530,1229440
+2610570,1229480
+
+## GRETL-Zeugs
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=dsbjd_ebauso_rahmenmodell -PschemaDirName=schema_pub createSchema configureSchema
+```
+
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=dsbjd_ebauso_rahmenmodell -PschemaDirName=schema_stage createSchema configureSchema
+```
+
+
+```
+docker compose run --rm -u $UID gretl --project-dir=dsbjd_ebauso_rahmenmodell_pub
+```
+
+
 ## OEREB
 
 Welche Daten sind nicht im ÖREB:
@@ -15,13 +111,7 @@ Problematischer dürfte die Nicht-Fähigkeit von Buffer-Abfragen zu sein. Bei we
 - Hecken / Ufergehölz (Nutzungsplanung) 10m
 - Baulinie 6m
 
-
-
-
-
-
-
-Naturreservate, Geotope, Archäologie und Denkmalschutz sind im Einzelschutz.
+Naturreservate, Geotope, Archäologie und Denkmalschutz sind im Einzelschutz. Aber ist alles davon im ÖREB, was interessiert?
 
 ## Grundstückinformation (im engeren Sinn)
 
