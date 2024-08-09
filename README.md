@@ -60,10 +60,14 @@ SELECT DISTINCT
 FROM 
     dsbjd_ebauso_rahmenmodell_pub_v1.fachthemen_fachthema_polygon 
 
+UNION 
+
 SELECT DISTINCT 
     thema
 FROM 
     dsbjd_ebauso_rahmenmodell_pub_v1.fachthemen_fachthema_linie 
+
+UNION 
 
 SELECT DISTINCT 
     thema
